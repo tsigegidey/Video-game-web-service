@@ -62,13 +62,13 @@
     $('#films').html("");
 
     //loop through films and add template
-	/*
-    $.each(data.films,function(i,item){
-      let myFilm = fastFuriousTemplate(item);
+	
+    $.each(data.games,function(i,item){
+      let myGame = fastFuriousTemplate(item);
 
-      $('<div></div>').html(myFilm).appendTo('#films');
+      $('<div></div>').html(myGame).appendTo('#films');
     });
-   */
+   
     //This loads the data on the page, but it is all bunched
     //$("#output").text(JSON.stringify(data));
 
@@ -80,23 +80,23 @@
     
   }
 
-  function fastFuriousTemplate(film){
+  function fastFuriousTemplate(game){
     return `
       <div class="film">
-        <b>Film:</b>${film.Film}<br />
-        <b>Title:</b>${film.Title}<br />
-        <b>Year:</b>${film.Year}<br />
-        <b>Director:</b>${film.Director}<br />
-        <b>Producers:</b>${film.Producers}<br />
-        <b>Writers:</b>${film.Writers}<br />
-        <b>Composer:</b>${film.Composer}<br />
-        <b>Budget:</b>${film.Budget}<br />
-        <b>Box Office:</b>${film.BoxOffice}<br />
+        <b>Title:</b>${game.Title}<br />
+        <b>Genre:</b>${game.Genre}<br />
+        <b>Company:</b>${game.Company}<br />
+        <b>Year:</b>${game.Year}<br />
+        <b>Rating:</b>${game.Rating}<br />
         <div class="pic">
-          <img src="thumbnails/${film.Image}"/>
+          <img src="thumbnails/${game.Image}"/>
         </div>
     `;
   }
+
+
+
+
 </script>
 </head>
 <body>
