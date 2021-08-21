@@ -37,7 +37,12 @@
       type: "GET",
       dataType: "json",
       url: "api.php?cat=" + cat,
-      success: fastJSON
+      success: fastJSON,
+	  error: function(xhr, status,error){
+		let errorMessage = xhr.status + ': ' + xhr.statusText
+		alert ('Error- ' + errorMessage);
+
+	  }
     });
   }
 
@@ -57,21 +62,22 @@
     $('#films').html("");
 
     //loop through films and add template
+	/*
     $.each(data.films,function(i,item){
       let myFilm = fastFuriousTemplate(item);
 
       $('<div></div>').html(myFilm).appendTo('#films');
     });
-
+   */
     //This loads the data on the page, but it is all bunched
     //$("#output").text(JSON.stringify(data));
 
     //this creates a map of JSON on our page
-    /*
+    
     let myData = JSON.stringify(data,null,4);
     myData = "<pre>" + myData + "</pre>";
     $("#output").html(myData);
-    */
+    
   }
 
   function fastFuriousTemplate(film){
@@ -95,9 +101,9 @@
 </head>
 <body>
   <h1>Video Game Web Service</h1>
-  <a href="year" class="category">Fast & Furious Films By Year</a>
+  <a href="year" class="category">Video Games By Year</a>
   <br />
-  <a href="box" class="category">Fast & Furious Films By International Box Office Totals</a>
+  <a href="title" class="category">Video Games By Ttitle </a>
   <h3 id="filmtitle">Title Will Go Here</h3>
   <div id="films">
   <!--<div class="film">
